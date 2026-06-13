@@ -1,13 +1,1057 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FMZBC AV Training Resource Hub</title>
-    <script type="module" crossorigin src="./assets/index-DLpLLJKM.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DLpxvuT1.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="FMZAV Media Training resource hub for audio, cameras, switchers, graphics, and post-production training." />
+  <title>FMZAV Media Training</title>
+
+  <!--
+    FMZAV MEDIA TRAINING
+    Static HTML/CSS/JS site for GitHub Pages.
+    Keep FMZAV-LOGO.jpg in the same folder as this index.html file.
+  -->
+
+  <style>
+    :root {
+      --black: #050607;
+      --charcoal: #111316;
+      --panel: #171b20;
+      --panel-2: #20262d;
+      --line: #2e3339;
+      --blue: #6f8fad;
+      --blue-dark: #40576b;
+      --burgundy: #7a120f;
+      --taupe: #b8a78f;
+      --cream: #e7ded2;
+      --muted: #d7cdbb;
+      --shadow: 0 18px 44px rgba(0, 0, 0, 0.32);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body, h1, h2, h3, h4, p, ul { margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(900px 420px at 85% -10%, rgba(111, 143, 173, 0.16), transparent 60%),
+        radial-gradient(760px 380px at 0% 10%, rgba(122, 18, 15, 0.17), transparent 62%),
+        var(--black);
+      color: var(--cream);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button { border: 0; cursor: pointer; }
+    .container { width: min(1180px, 92%); margin: 0 auto; }
+    section { padding: 76px 0; scroll-margin-top: 86px; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(5, 6, 7, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      background: #000;
+      box-shadow: 0 0 28px rgba(111, 143, 173, 0.22);
+    }
+
+    .brand span span { color: var(--taupe); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .nav-links a:hover { background: var(--panel-2); color: #fff; }
+
+    .menu {
+      display: none;
+      padding: 9px 12px;
+      border-radius: 10px;
+      background: var(--panel-2);
+      color: var(--cream);
+      font-weight: 900;
+    }
+
+    .hero { padding: 92px 0 62px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    h1 {
+      max-width: 860px;
+      font-size: clamp(40px, 6vw, 74px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    h1 span {
+      background: linear-gradient(120deg, var(--blue), var(--taupe), var(--burgundy));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      max-width: 68ch;
+      margin: 22px 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+      color: var(--cream);
+      font-weight: 900;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); border-color: var(--blue); }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+      color: var(--black);
+      border-color: transparent;
+    }
+
+    .toolbar, .training-card, .schedule-card, footer {
+      background: linear-gradient(180deg, var(--charcoal), var(--panel));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .section-head p { max-width: 740px; color: var(--muted); }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      padding: 14px;
+      margin-bottom: 18px;
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel-2);
+      color: var(--taupe);
+      font-weight: 900;
+    }
+
+    .search input {
+      width: 100%;
+      color: #fff;
+      background: transparent;
+      border: 0;
+      outline: 0;
+    }
+
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .chip {
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .chip.active {
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+      color: var(--black);
+      border-color: transparent;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 18px;
+    }
+
+    .training-card {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .training-card:hover { transform: translateY(-2px); border-color: var(--blue); }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .category {
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .badge {
+      padding: 5px 9px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 10px;
+      font-weight: 950;
+      color: var(--black);
+      white-space: nowrap;
+    }
+
+    .paid { background: #ffb547; }
+    .free { background: #22d3a4; }
+    .included { background: var(--blue); }
+    .mixed { background: var(--taupe); }
+
+    .training-card h3 { font-size: 21px; line-height: 1.2; }
+    .training-card p { color: var(--muted); font-size: 14px; }
+    .subhead {
+      color: var(--cream);
+      font-size: 13px;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+
+    .camera-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .camera-list span {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 999px;
+      padding: 4px 9px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .link-list {
+      display: grid;
+      gap: 8px;
+      list-style: none;
+      margin-top: auto;
+    }
+
+    .link-list a {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel-2);
+      color: var(--cream);
+      font-size: 14px;
+      font-weight: 850;
+    }
+
+    .link-list a:hover { border-color: var(--blue); color: #fff; }
+
+    .download {
+      margin-top: 4px;
+      border: 1px dashed var(--blue);
+      background: rgba(111, 143, 173, 0.09);
+      color: var(--cream);
+    }
+
+    .empty {
+      display: none;
+      grid-column: 1 / -1;
+      text-align: center;
+      color: var(--muted);
+      padding: 32px;
+    }
+
+    .label-guide {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .label-guide span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .label-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    .label-dot.free { background: #22d3a4; }
+    .label-dot.paid { background: #ffb547; }
+    .label-dot.mixed { background: var(--taupe); }
+
+    .free-path-note {
+      margin-bottom: 18px;
+      padding: 16px;
+      border: 1px dashed var(--blue);
+      border-radius: 16px;
+      background: rgba(111, 143, 173, 0.08);
+      color: var(--muted);
+    }
+
+    .free-path-note strong { color: var(--cream); }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .schedule-card {
+      padding: 24px;
+    }
+
+    .schedule-card h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .schedule-card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .calendar-placeholder {
+      min-height: 260px;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      border: 1px dashed var(--blue);
+      border-radius: 16px;
+      background:
+        linear-gradient(135deg, rgba(111, 143, 173, 0.08), rgba(122, 18, 15, 0.08)),
+        var(--panel-2);
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .calendar-placeholder strong {
+      display: block;
+      color: var(--cream);
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    footer {
+      margin-top: 48px;
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 0;
+      padding: 36px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    footer p, footer li { color: var(--muted); font-size: 14px; }
+    footer ul { list-style: none; display: grid; gap: 7px; }
+    footer a { color: var(--blue); }
+    .legal {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--taupe);
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid, .toolbar, .schedule-grid, .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .menu { display: inline-flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px 4%;
+        background: var(--charcoal);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-links.open { display: flex; }
+      section { padding: 56px 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="FMZAV Media Training home">
+        <img src="FMZAV-LOGO.jpg" alt="FMZBC AV Ministry logo" />
+        <span>FMZAV <span>Media Training</span></span>
+      </a>
+      <button class="menu" id="menu" aria-label="Open navigation">Menu</button>
+      <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+        <a href="#audio">Audio</a>
+        <a href="#cameras">Cameras & Switchers</a>
+        <a href="#livestream">Livestream Software</a>
+        <a href="#zoom">Zoom Training</a>
+        <a href="#graphics">Graphics</a>
+        <a href="#post">Video & Post</a>
+        <a href="#free-tools">Free Tools</a>
+        <a href="#schedule">Schedule</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">FMZAV Media Training</span>
+          <h1>Training links for <span>audio, cameras, switchers, livestreaming, Zoom, graphics, and post-production.</span></h1>
+          <p class="lead">This page is a focused training hub for the FMZBC AV Ministry. Use the cards below to access official manuals, learning centers, tutorials, livestream software resources, Zoom setup guides, and internal template placeholders.</p>
+          <div class="actions">
+            <a class="btn primary" href="#audio">Start Training</a>
+            <a class="btn" href="#free-tools">Free Tools Path</a>
+            <a class="btn" href="https://teams.microsoft.com/meet/223952008569158?p=9CrNPPSYd1CB1FHatZ" target="_blank" rel="noopener">Join Teams Meeting</a>
+            <a class="btn" href="https://firstmountzionbaptistchurch.ccbchurch.com/goto/forms/83/responses/new" target="_blank" rel="noopener">Join AV Ministry</a>
+            <a class="btn" href="mailto:AudioVisual@firstmountzionbc.org">Contact AV Team</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="training">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Training Library</span>
+            <h2>Search all training resources</h2>
+            <p>Filter by category or search by tool, workflow, manual, or training topic.</p>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <label class="search">
+            Search
+            <input id="searchInput" type="search" placeholder="Try DiGiCo, Waves, Logic, GarageBand, Canon, ATEM, OBS, vMix, Zoom, ProPresenter, Resolve" />
+          </label>
+          <div class="filters" aria-label="Training filters">
+            <button class="chip active" data-filter="all">All</button>
+            <button class="chip" data-filter="audio">Audio</button>
+            <button class="chip" data-filter="cameras">Cameras & Switchers</button>
+            <button class="chip" data-filter="livestream">Livestream Software</button>
+            <button class="chip" data-filter="zoom">Zoom Training</button>
+            <button class="chip" data-filter="graphics">Graphics</button>
+            <button class="chip" data-filter="post">Video & Post</button>
+          </div>
+        </div>
+
+        <div class="label-guide" aria-label="Software cost label guide">
+          <span><i class="label-dot free"></i>Free: usable without a software purchase</span>
+          <span><i class="label-dot mixed"></i>Free with Paid Tier: free plan/version available, paid upgrade optional</span>
+          <span><i class="label-dot paid"></i>Paid Only: requires paid software, hardware, or subscription</span>
+        </div>
+
+        <div class="grid" id="trainingGrid">
+          <article id="audio" class="training-card" data-cat="audio" data-tags="audio digico boards documentation console front of house broadcast snapshots routing sd series">
+            <div class="card-top"><span class="category">Audio</span><span class="badge paid">Paid Only</span></div>
+            <h3>DiGiCo Boards Documentation</h3>
+            <p>Professional live audio console system used for front-of-house mixing, broadcast mixing, routing, snapshots, and advanced live production workflows.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://digico.biz/training/" target="_blank" rel="noopener">DiGiCo Training Portal <span>↗</span></a></li>
+              <li><a href="http://www.digico.tv" target="_blank" rel="noopener">DiGiCo TV <span>↗</span></a></li>
+              <li><a href="https://digico.biz/wp-content/uploads/2022/03/SD-Quantum-Software-Reference-Issue-E-V1528.pdf" target="_blank" rel="noopener">DiGiCo SD Series Manuals <span>↗</span></a></li>
+              <li><a href="https://www.youtube.com/user/digicoconsoles/videos" target="_blank" rel="noopener">DiGiCo YouTube Channel <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Console Notes</a>
+          </article>
+
+          <article class="training-card" data-cat="audio" data-tags="audio waves plugins vocal enhancement eq compression noise reduction broadcast processing">
+            <div class="card-top"><span class="category">Audio</span><span class="badge paid">Paid Only</span></div>
+            <h3>Waves Plugins</h3>
+            <p>Audio processing plugins used for vocal enhancement, EQ, compression, noise reduction, and live broadcast audio processing.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://www.waves.com/learn" target="_blank" rel="noopener">Waves Learning Center <span>↗</span></a></li>
+              <li><a href="https://www.waves.com/videos/live-sound" target="_blank" rel="noopener">Waves Live Sound Tutorials <span>↗</span></a></li>
+              <li><a href="https://www.waves.com/downloads/manuals" target="_blank" rel="noopener">Waves Plugin Manuals <span>↗</span></a></li>
+              <li><a href="https://www.youtube.com/c/waves" target="_blank" rel="noopener">Waves YouTube Channel <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Plugin Cheat Sheet</a>
+          </article>
+
+          <article class="training-card" data-cat="audio" data-tags="audio logic pro recording editing music production sermon editing multitrack">
+            <div class="card-top"><span class="category">Audio</span><span class="badge paid">Paid Only</span></div>
+            <h3>Logic Pro</h3>
+            <p>Professional audio recording and editing software used for music production, sermon editing, and multitrack audio workflows.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://support.apple.com/guide/logicpro/welcome/mac" target="_blank" rel="noopener">Logic Pro User Guide <span>↗</span></a></li>
+              <li><a href="https://support.apple.com/en-us/102776" target="_blank" rel="noopener">Apple Logic Pro Resources <span>↗</span></a></li>
+              <li><a href="https://support.apple.com/logic-pro" target="_blank" rel="noopener">Apple Support Documentation <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Logic Session Template</a>
+          </article>
+
+          <article class="training-card" data-cat="audio" data-tags="audio garageband free apple recording editing music production sermon audio loops ipad iphone mac beginner">
+            <div class="card-top"><span class="category">Audio</span><span class="badge free">Free</span></div>
+            <h3>GarageBand</h3>
+            <p>Free Apple audio production software used for beginner-friendly recording, simple sermon or music edits, loop-based worship media beds, and quick audio projects on Mac, iPad, or iPhone.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://support.apple.com/garageband" target="_blank" rel="noopener">GarageBand Official Apple Support <span>↗</span></a></li>
+              <li><a href="https://support.apple.com/guide/garageband/welcome/mac" target="_blank" rel="noopener">GarageBand User Guide for Mac <span>↗</span></a></li>
+              <li><a href="https://support.apple.com/guide/garageband-ipad/welcome/ipados" target="_blank" rel="noopener">GarageBand User Guide for iPad <span>↗</span></a></li>
+              <li><a href="https://support.apple.com/guide/garageband-iphone/get-started-chsff8c943/ios" target="_blank" rel="noopener">Get Started with GarageBand for iPhone <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: GarageBand Quick Start Checklist</a>
+          </article>
+
+          <article class="training-card" data-cat="audio" data-tags="audio audacity free sermon edits cleanup mp3 exports recording">
+            <div class="card-top"><span class="category">Audio</span><span class="badge free">Free</span></div>
+            <h3>Audacity</h3>
+            <p>Free audio editing software used for quick sermon edits, audio cleanup, MP3 exports, and simple recording workflows.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://manual.audacityteam.org/" target="_blank" rel="noopener">Audacity Manual <span>↗</span></a></li>
+              <li><a href="https://manual.audacityteam.org/man/tutorials_for_audacity.html" target="_blank" rel="noopener">Audacity Tutorials <span>↗</span></a></li>
+              <li><a href="https://support.audacityteam.org/" target="_blank" rel="noopener">Audacity Support Documentation <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Sermon Export Preset</a>
+          </article>
+
+          <article id="cameras" class="training-card" data-cat="cameras" data-tags="blackmagic design cameras studio camera 4k g2 broadcast g2 4k livestream worship multi camera">
+            <div class="card-top"><span class="category">Cameras & Switchers</span><span class="badge paid">Paid Only</span></div>
+            <h3>Blackmagic Design Cameras</h3>
+            <p>Professional broadcast and cinema cameras used for livestreaming, worship coverage, recording, and multi-camera production.</p>
+            <h4 class="subhead">Cameras</h4>
+            <div class="camera-list"><span>Studio Camera 4K G2</span><span>Broadcast G2 4K</span></div>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://www.blackmagicdesign.com/support" target="_blank" rel="noopener">Blackmagic Support Center <span>↗</span></a></li>
+              <li><a href="https://www.blackmagicdesign.com/support" target="_blank" rel="noopener">Blackmagic Camera Manuals <span>↗</span></a></li>
+              <li><a href="https://www.blackmagicdesign.com/products/davinciresolve/training" target="_blank" rel="noopener">Blackmagic Training Center <span>↗</span></a></li>
+              <li><a href="https://www.youtube.com/channel/UCufB8sMVyP9JEScMjLz74YA" target="_blank" rel="noopener">Blackmagic Official YouTube <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Camera Preset Sheet</a>
+          </article>
+
+          <article class="training-card" data-cat="cameras" data-tags="canon ptz cameras remote controlled cr-n700 cr-n500 cr-n300 presets livestream">
+            <div class="card-top"><span class="category">Cameras & Switchers</span><span class="badge paid">Paid Only</span></div>
+            <h3>Canon PTZ Cameras</h3>
+            <p>Remote-controlled broadcast cameras used for automated camera movements, presets, and livestream production.</p>
+            <h4 class="subhead">Cameras</h4>
+            <div class="camera-list"><span>Canon CR-N700</span><span>Canon CR-N500</span><span>Canon CR-N300</span></div>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://www.usa.canon.com/cameras/ptz-cameras" target="_blank" rel="noopener">Canon PTZ Resources <span>↗</span></a></li>
+              <li><a href="https://www.usa.canon.com/support/p/cr-n700" target="_blank" rel="noopener">Canon PTZ Manuals <span>↗</span></a></li>
+              <li><a href="https://www.youtube.com/user/canonimagingplaza" target="_blank" rel="noopener">Canon USA YouTube <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: PTZ Preset Map</a>
+          </article>
+
+          <article class="training-card" data-cat="cameras" data-tags="blackmagic switchers atem livestream directing graphics integration recording broadcast production">
+            <div class="card-top"><span class="category">Cameras & Switchers</span><span class="badge paid">Paid Only</span></div>
+            <h3>Blackmagic Switchers</h3>
+            <p>Video switchers used for livestream directing, camera switching, graphics integration, recording, and broadcast production.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://www.blackmagicdesign.com/developer/products/atem/resources" target="_blank" rel="noopener">ATEM Switcher Manual <span>↗</span></a></li>
+              <li><a href="https://www.blackmagicdesign.com/products/atemmini/training" target="_blank" rel="noopener">ATEM Training <span>↗</span></a></li>
+              <li><a href="https://www.youtube.com/channel/UCufB8sMVyP9JEScMjLz74YA" target="_blank" rel="noopener">Blackmagic Live Production Tutorials <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Switching Notes</a>
+          </article>
+
+          <article id="livestream" class="training-card" data-cat="livestream" data-tags="livestream software obs studio open broadcaster streaming recording scenes sources rtmp free">
+            <div class="card-top"><span class="category">Live Streaming Software</span><span class="badge free">Free</span></div>
+            <h3>OBS Studio</h3>
+            <p>Free and open-source livestreaming and recording software used for scenes, sources, stream output, recording, and emergency streaming workflows.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://obsproject.com/wiki/" target="_blank" rel="noopener">OBS Studio Wiki <span>↗</span></a></li>
+              <li><a href="https://obsproject.com/help" target="_blank" rel="noopener">OBS Help Resources <span>↗</span></a></li>
+              <li><a href="https://obsproject.com/forum/" target="_blank" rel="noopener">OBS Support Forum <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: OBS Scene Collection</a>
+          </article>
+
+          <article class="training-card" data-cat="livestream" data-tags="livestream software vmix switching recording production graphics replay streaming">
+            <div class="card-top"><span class="category">Live Streaming Software</span><span class="badge paid">Paid Only</span></div>
+            <h3>vMix</h3>
+            <p>Professional live production and streaming software used for switching, recording, graphics, inputs, replay workflows, and advanced livestream production.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://www.vmix.com/support/training-videos.aspx" target="_blank" rel="noopener">vMix Training Videos <span>↗</span></a></li>
+              <li><a href="https://www.vmix.com/help28/" target="_blank" rel="noopener">vMix User Guide <span>↗</span></a></li>
+              <li><a href="https://www.youtube.com/user/vMixHD" target="_blank" rel="noopener">vMix YouTube Channel <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: vMix Preset Notes</a>
+          </article>
+
+          <article class="training-card" data-cat="livestream" data-tags="livestream software resi church streaming encoder resilient streaming support">
+            <div class="card-top"><span class="category">Live Streaming Software</span><span class="badge paid">Paid Only</span></div>
+            <h3>Resi</h3>
+            <p>Church-focused livestreaming platform used for resilient streaming, encoder workflows, event management, monitoring, and reliable weekend broadcast delivery.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://support.pushpay.com/s/resi" target="_blank" rel="noopener">Resi Help Center <span>↗</span></a></li>
+              <li><a href="https://resi.io/contact/" target="_blank" rel="noopener">Resi Support & Documentation <span>↗</span></a></li>
+              <li><a href="https://resi.io" target="_blank" rel="noopener">Resi Platform Resources <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Resi Stream Checklist</a>
+          </article>
+
+          <article class="training-card" data-cat="livestream" data-tags="livestream software restream multistream destinations youtube facebook studio cloud streaming">
+            <div class="card-top"><span class="category">Live Streaming Software</span><span class="badge mixed">Free with Paid Tier</span></div>
+            <h3>Restream</h3>
+            <p>Cloud livestreaming and multistreaming platform used to send one broadcast to multiple destinations, manage channels, and use browser-based live studio tools.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://support.restream.io/en/" target="_blank" rel="noopener">Restream Help Center <span>↗</span></a></li>
+              <li><a href="https://support.restream.io/en/articles/10079057-easy-steps-for-your-first-stream" target="_blank" rel="noopener">First Stream Guide <span>↗</span></a></li>
+              <li><a href="https://restream.io" target="_blank" rel="noopener">Restream Platform Resources <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Multistream Checklist</a>
+          </article>
+
+          <article id="zoom" class="training-card" data-cat="zoom" data-tags="zoom training meetings webinar webinars breakout rooms regular setup host cohost online meeting event registration participant management">
+            <div class="card-top"><span class="category">Zoom Training</span><span class="badge mixed">Free with Paid Tier</span></div>
+            <h3>Zoom Meetings, Webinars & Breakout Rooms</h3>
+            <p>Online meeting and webinar training for regular Zoom setup, host and co-host workflows, breakout room management, participant controls, and volunteer-friendly online production support.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061316" target="_blank" rel="noopener">Getting Started Guide for New Users <span>↗</span></a></li>
+              <li><a href="https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0060700" target="_blank" rel="noopener">Scheduling Meetings <span>↗</span></a></li>
+              <li><a href="https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064444" target="_blank" rel="noopener">Getting Started with Zoom Webinars <span>↗</span></a></li>
+              <li><a href="https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0062540" target="_blank" rel="noopener">Managing Meeting Breakout Rooms <span>↗</span></a></li>
+              <li><a href="https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0060166" target="_blank" rel="noopener">Zoom Learning Center <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Zoom Host Checklist</a>
+          </article>
+
+          <article id="graphics" class="training-card" data-cat="graphics" data-tags="graphics microsoft powerpoint sermon slides announcements ministry presentations">
+            <div class="card-top"><span class="category">Graphics</span><span class="badge mixed">Free with Paid Tier</span></div>
+            <h3>Microsoft PowerPoint</h3>
+            <p>Presentation software used for sermon slides, announcements, event graphics, and ministry presentations.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://support.microsoft.com/en-us/powerpoint" target="_blank" rel="noopener">Microsoft PowerPoint Help Center <span>↗</span></a></li>
+              <li><a href="https://support.microsoft.com/en-us/office/powerpoint-for-windows-training-40e8c930-cb0b-40d8-82c4-bd53d3398787" target="_blank" rel="noopener">Microsoft Training Center <span>↗</span></a></li>
+              <li><a href="https://learn.microsoft.com/en-us/microsoft-365/" target="_blank" rel="noopener">PowerPoint Documentation <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Announcement Slide Template</a>
+          </article>
+
+          <article class="training-card" data-cat="graphics" data-tags="graphics propresenter renewed vision lyrics scripture confidence monitors announcement playback">
+            <div class="card-top"><span class="category">Graphics</span><span class="badge paid">Paid Only</span></div>
+            <h3>ProPresenter by Renewed Vision</h3>
+            <p>Church presentation software used for lyrics, scripture, livestream graphics, confidence monitors, and announcement playback.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://renewedvision.com/propresenter/tutorials" target="_blank" rel="noopener">ProPresenter Tutorials <span>↗</span></a></li>
+              <li><a href="https://support.renewedvision.com/hc/en-us/categories/360001071753-Knowledge-Base" target="_blank" rel="noopener">ProPresenter User Guide <span>↗</span></a></li>
+              <li><a href="https://www.youtube.com/playlist?list=PL9dcMXSRCi0lU0JgXReTgoRSD8Zz8tHNd" target="_blank" rel="noopener">Renewed Vision YouTube <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: ProPresenter Theme Template</a>
+          </article>
+
+          <article class="training-card" data-cat="graphics" data-tags="graphics affinity photo designer publisher sermon graphics announcement slides lower thirds design">
+            <div class="card-top"><span class="category">Graphics</span><span class="badge free">Free</span></div>
+            <h3>Affinity</h3>
+            <p>Creative design software used for sermon graphics, announcement slides, lower-thirds, thumbnails, photo edits, and print-ready ministry designs.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://www.affinity.studio" target="_blank" rel="noopener">Affinity Official Site <span>↗</span></a></li>
+              <li><a href="https://www.youtube.com/@AffinitybyCanva" target="_blank" rel="noopener">Affinity Official YouTube <span>↗</span></a></li>
+              <li><a href="https://forum.affinity.serif.com/" target="_blank" rel="noopener">Affinity Support Forum <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Affinity Graphics Template</a>
+          </article>
+
+          <article class="training-card" data-cat="graphics" data-tags="graphics adobe express social media announcement slides quick designs templates ministry graphics">
+            <div class="card-top"><span class="category">Graphics</span><span class="badge mixed">Free with Paid Tier</span></div>
+            <h3>Adobe Express</h3>
+            <p>Quick design tool used for social posts, announcement graphics, event promos, simple videos, templates, and fast ministry communication assets.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://www.adobe.com/learn/express" target="_blank" rel="noopener">Learn Adobe Express <span>↗</span></a></li>
+              <li><a href="https://helpx.adobe.com/express/web.html" target="_blank" rel="noopener">Adobe Express Web Help <span>↗</span></a></li>
+              <li><a href="https://helpx.adobe.com/support.html" target="_blank" rel="noopener">Adobe Help Center <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Adobe Express Brand Kit</a>
+          </article>
+
+          <article id="post" class="training-card" data-cat="post" data-tags="video post production davinci resolve editing color grading audio mixing motion graphics sermon edits ministry highlights">
+            <div class="card-top"><span class="category">Video & Post Production</span><span class="badge mixed">Free with Paid Tier</span></div>
+            <h3>DaVinci Resolve</h3>
+            <p>Professional video editing, color grading, audio mixing, and motion graphics software used for sermon edits, ministry highlights, and social media content.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://www.blackmagicdesign.com/products/davinciresolve/training" target="_blank" rel="noopener">Blackmagic Resolve Training <span>↗</span></a></li>
+              <li><a href="https://www.blackmagicdesign.com/support/family/davinci-resolve-and-fusion" target="_blank" rel="noopener">DaVinci Resolve Manual <span>↗</span></a></li>
+              <li><a href="https://www.youtube.com/channel/UCufB8sMVyP9JEScMjLz74YA" target="_blank" rel="noopener">Blackmagic Official YouTube <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Resolve Project Template</a>
+          </article>
+
+          <article class="training-card" data-cat="post" data-tags="video post production davinci fairlight audio post dialogue cleanup broadcast audio mixing sermon mastering">
+            <div class="card-top"><span class="category">Video & Post Production</span><span class="badge mixed">Free with Paid Tier</span></div>
+            <h3>DaVinci Fairlight</h3>
+            <p>Integrated audio post-production system inside DaVinci Resolve used for dialogue cleanup, broadcast audio mixing, and sermon mastering.</p>
+            <h4 class="subhead">Training & Manuals</h4>
+            <ul class="link-list">
+              <li><a href="https://www.blackmagicdesign.com/products/davinciresolve/training" target="_blank" rel="noopener">Fairlight Audio Guide <span>↗</span></a></li>
+              <li><a href="https://www.blackmagicdesign.com/products/davinciresolve/training" target="_blank" rel="noopener">Blackmagic Fairlight Training <span>↗</span></a></li>
+              <li><a href="https://www.youtube.com/channel/UCufB8sMVyP9JEScMjLz74YA" target="_blank" rel="noopener">Blackmagic Official YouTube <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Sermon Mastering Checklist</a>
+          </article>
+
+          <div class="empty" id="emptyState">No matching training resources found. Try another search or clear the filter.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="free-tools">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">No-Budget Volunteer Path</span>
+            <h2>Free tools only</h2>
+            <p>This standalone path is for a church volunteer who needs to train without buying software. Some tools may offer paid upgrades, but every item below has a usable free path for the listed training task.</p>
+          </div>
+        </div>
+
+        <div class="free-path-note">
+          <strong>Recommended starting order:</strong> OpenLP or FreeShow for ProPresenter-style presentation practice, OBS Studio for streaming fundamentals, Audacity for cross-platform audio editing, GarageBand for Apple-only audio practice, and Affinity or Adobe Express free tools for basic graphics.
+        </div>
+
+        <div class="grid">
+          <article class="training-card">
+            <div class="card-top"><span class="category">ProPresenter Alternative</span><span class="badge free">Free</span></div>
+            <h3>OpenLP</h3>
+            <p>Free open-source church presentation software for lyrics, scripture, service items, and basic worship slide operation.</p>
+            <h4 class="subhead">Start Here</h4>
+            <ul class="link-list">
+              <li><a href="https://openlp.org" target="_blank" rel="noopener">OpenLP Official Site <span>↗</span></a></li>
+              <li><a href="https://manual.openlp.org" target="_blank" rel="noopener">OpenLP User Manual <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: OpenLP Practice Service</a>
+          </article>
+
+          <article class="training-card">
+            <div class="card-top"><span class="category">ProPresenter Alternative</span><span class="badge free">Free</span></div>
+            <h3>FreeShow</h3>
+            <p>Free open-source presenter for worship lyrics, slides, media playback, and volunteer practice when ProPresenter is not available.</p>
+            <h4 class="subhead">Start Here</h4>
+            <ul class="link-list">
+              <li><a href="https://freeshow.app" target="_blank" rel="noopener">FreeShow Official Site <span>↗</span></a></li>
+              <li><a href="https://freeshow.app/docs" target="_blank" rel="noopener">FreeShow Docs <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: FreeShow Practice Notes</a>
+          </article>
+
+          <article class="training-card">
+            <div class="card-top"><span class="category">Streaming</span><span class="badge free">Free</span></div>
+            <h3>OBS Studio</h3>
+            <p>Free streaming and recording software for learning scenes, sources, stream output, recording, audio routing, and emergency streaming basics.</p>
+            <h4 class="subhead">Start Here</h4>
+            <ul class="link-list">
+              <li><a href="https://obsproject.com/wiki/" target="_blank" rel="noopener">OBS Studio Wiki <span>↗</span></a></li>
+              <li><a href="https://obsproject.com/help" target="_blank" rel="noopener">OBS Help Resources <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: OBS Starter Scene Collection</a>
+          </article>
+
+          <article class="training-card">
+            <div class="card-top"><span class="category">Streaming</span><span class="badge mixed">Free with Paid Tier</span></div>
+            <h3>Restream Free Tier</h3>
+            <p>Use the free tier to learn cloud-based stream destinations, channel setup, and browser-based live studio concepts.</p>
+            <h4 class="subhead">Start Here</h4>
+            <ul class="link-list">
+              <li><a href="https://support.restream.io/en/" target="_blank" rel="noopener">Restream Help Center <span>↗</span></a></li>
+              <li><a href="https://support.restream.io/en/articles/10079057-easy-steps-for-your-first-stream" target="_blank" rel="noopener">First Stream Guide <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Free Multistream Checklist</a>
+          </article>
+
+          <article class="training-card">
+            <div class="card-top"><span class="category">Audio</span><span class="badge free">Free</span></div>
+            <h3>Audacity</h3>
+            <p>Free audio editor for sermon trimming, cleanup, MP3 export, simple recording, and basic volunteer audio-editing practice.</p>
+            <h4 class="subhead">Start Here</h4>
+            <ul class="link-list">
+              <li><a href="https://manual.audacityteam.org/" target="_blank" rel="noopener">Audacity Manual <span>↗</span></a></li>
+              <li><a href="https://manual.audacityteam.org/man/how_to_use_audacity.html" target="_blank" rel="noopener">How to Use Audacity <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Sermon Edit Practice File</a>
+          </article>
+
+          <article class="training-card">
+            <div class="card-top"><span class="category">Audio</span><span class="badge free">Free</span></div>
+            <h3>GarageBand</h3>
+            <p>Free Apple audio production software for beginner-friendly recording, simple sermon or music edits, loop-based worship media beds, and quick audio projects. Note: GarageBand is only available on Apple products such as Mac, iPad, and iPhone.</p>
+            <h4 class="subhead">Start Here</h4>
+            <ul class="link-list">
+              <li><a href="https://support.apple.com/garageband" target="_blank" rel="noopener">GarageBand Official Apple Support <span>↗</span></a></li>
+              <li><a href="https://support.apple.com/guide/garageband/welcome/mac" target="_blank" rel="noopener">GarageBand User Guide for Mac <span>↗</span></a></li>
+              <li><a href="https://support.apple.com/guide/garageband-ipad/welcome/ipados" target="_blank" rel="noopener">GarageBand User Guide for iPad <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: GarageBand Quick Start Checklist</a>
+          </article>
+
+          <article class="training-card">
+            <div class="card-top"><span class="category">Audio / Post</span><span class="badge mixed">Free with Paid Tier</span></div>
+            <h3>DaVinci Resolve Fairlight</h3>
+            <p>Use the free version of DaVinci Resolve to practice dialogue cleanup, sermon mastering, and simple broadcast audio post-production.</p>
+            <h4 class="subhead">Start Here</h4>
+            <ul class="link-list">
+              <li><a href="https://www.blackmagicdesign.com/products/davinciresolve/training" target="_blank" rel="noopener">DaVinci Resolve Training <span>↗</span></a></li>
+              <li><a href="https://www.blackmagicdesign.com/support/family/davinci-resolve-and-fusion" target="_blank" rel="noopener">Resolve Manuals <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Sermon Audio Checklist</a>
+          </article>
+
+          <article class="training-card">
+            <div class="card-top"><span class="category">Graphics</span><span class="badge free">Free</span></div>
+            <h3>Affinity</h3>
+            <p>Free creative software for sermon graphics, announcement slides, lower-thirds, social media graphics, and worship backgrounds.</p>
+            <h4 class="subhead">Start Here</h4>
+            <ul class="link-list">
+              <li><a href="https://www.affinity.studio" target="_blank" rel="noopener">Affinity Official Site <span>↗</span></a></li>
+              <li><a href="https://www.youtube.com/@AffinitybyCanva" target="_blank" rel="noopener">Affinity Official YouTube <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Free Sermon Graphic Template</a>
+          </article>
+
+          <article class="training-card">
+            <div class="card-top"><span class="category">Graphics</span><span class="badge mixed">Free with Paid Tier</span></div>
+            <h3>Adobe Express Free Tier</h3>
+            <p>Use the free tier for quick announcement slides, social posts, simple videos, church flyers, and volunteer-friendly templates.</p>
+            <h4 class="subhead">Start Here</h4>
+            <ul class="link-list">
+              <li><a href="https://www.adobe.com/express/create/post" target="_blank" rel="noopener">Free Social Media Post Maker <span>↗</span></a></li>
+              <li><a href="https://www.adobe.com/express/templates/flyer/church" target="_blank" rel="noopener">Free Church Flyer Templates <span>↗</span></a></li>
+              <li><a href="https://www.adobe.com/express/social-media" target="_blank" rel="noopener">Adobe Express Social Media Tools <span>↗</span></a></li>
+            </ul>
+            <a class="btn download" href="#">Placeholder Download: Free Announcement Graphic Template</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Training Schedule</span>
+            <h2>Join training and view the calendar</h2>
+            <p>Use the Teams link for live FMZAV training sessions. Replace the calendar placeholder with an embedded Microsoft, Google, or church calendar when the schedule is finalized.</p>
+          </div>
+        </div>
+
+        <div class="schedule-grid">
+          <article class="schedule-card">
+            <span class="category">Live Training</span>
+            <h3>Microsoft Teams Meeting</h3>
+            <p>Join the AV training meeting, walkthroughs, rehearsals, and volunteer onboarding sessions using the link below.</p>
+            <a class="btn primary" href="https://teams.microsoft.com/meet/223952008569158?p=9CrNPPSYd1CB1FHatZ" target="_blank" rel="noopener">Join Teams Meeting</a>
+          </article>
+
+          <article class="schedule-card">
+            <span class="category">Calendar Placeholder</span>
+            <div class="calendar-placeholder">
+              <div>
+                <strong>AV Training Calendar</strong>
+                <span>Use the link below to subscribe to the AV calendar. This area can later be replaced with an embedded calendar view.</span>
+                <div style="margin-top: 16px;">
+                  <a class="btn" href="webcal://firstmountzionbaptistchurch.ccbchurch.com/individual_calendar.ics?id=24&amp;tk=5137e45c91f60889723d253814eaf53d">Subscribe to AV Calendar</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom: 12px;">
+          <img src="FMZAV-LOGO.jpg" alt="FMZBC AV Ministry logo" />
+          <span>FMZAV <span>Media Training</span></span>
+        </div>
+        <p>Focused internal training hub for FMZBC AV Ministry volunteers. Replace placeholder downloads with your approved church resources.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li>AV Email: <a href="mailto:AudioVisual@firstmountzionbc.org">AudioVisual@firstmountzionbc.org</a></li>
+          <li>Teams Meeting: <a href="https://teams.microsoft.com/meet/223952008569158?p=9CrNPPSYd1CB1FHatZ" target="_blank" rel="noopener">Join FMZAV Training</a></li>
+          <li>AV Calendar: <a href="webcal://firstmountzionbaptistchurch.ccbchurch.com/individual_calendar.ics?id=24&amp;tk=5137e45c91f60889723d253814eaf53d">Subscribe to Calendar</a></li>
+          <li>Join AV Ministry: <a href="https://firstmountzionbaptistchurch.ccbchurch.com/goto/forms/83/responses/new" target="_blank" rel="noopener">Open Sign-Up Form</a></li>
+          <li><a href="#top">Back to top</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container legal">© <span id="year"></span> FMZBC AV Ministry. Ready for GitHub Pages as index.html.</div>
+  </footer>
+
+  <script>
+    const menu = document.getElementById("menu");
+    const navLinks = document.getElementById("navLinks");
+    menu.addEventListener("click", () => navLinks.classList.toggle("open"));
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => navLinks.classList.remove("open"));
+    });
+
+    const searchInput = document.getElementById("searchInput");
+    const chips = Array.from(document.querySelectorAll(".chip"));
+    const cards = Array.from(document.querySelectorAll("#trainingGrid .training-card"));
+    const emptyState = document.getElementById("emptyState");
+    let activeFilter = "all";
+
+    function filterCards() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visible = 0;
+
+      cards.forEach(card => {
+        const category = card.dataset.cat || "";
+        const searchableText = (card.innerText + " " + (card.dataset.tags || "")).toLowerCase();
+        const categoryMatch = activeFilter === "all" || category === activeFilter;
+        const searchMatch = !query || searchableText.includes(query);
+        const shouldShow = categoryMatch && searchMatch;
+
+        card.style.display = shouldShow ? "" : "none";
+        if (shouldShow) visible += 1;
+      });
+
+      emptyState.style.display = visible ? "none" : "block";
+    }
+
+    chips.forEach(chip => {
+      chip.addEventListener("click", () => {
+        chips.forEach(item => item.classList.remove("active"));
+        chip.classList.add("active");
+        activeFilter = chip.dataset.filter;
+        filterCards();
+      });
+    });
+
+    searchInput.addEventListener("input", filterCards);
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
