@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="FMZAV Media Training resource hub for audio, cameras, switchers, graphics, and post-production training." />
+  <meta name="description" content="FMZAV Media Training resource hub for volunteer training, AV process basics, audio, cameras, switchers, graphics, and post-production training." />
   <title>FMZAV Media Training</title>
 
   <!--
@@ -172,7 +172,7 @@
       border-color: transparent;
     }
 
-    .toolbar, .training-card, .schedule-card, footer {
+    .toolbar, .training-card, .schedule-card, .process-card, .notice-card, footer {
       background: linear-gradient(180deg, var(--charcoal), var(--panel));
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -383,6 +383,53 @@
     .label-dot.paid { background: #ffb547; }
     .label-dot.mixed { background: var(--taupe); }
 
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .process-card {
+      padding: 22px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .process-card h3 {
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .process-card p,
+    .process-card li {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .process-card ul {
+      padding-left: 18px;
+      display: grid;
+      gap: 7px;
+    }
+
+    .notice-card {
+      margin-top: 18px;
+      padding: 20px;
+      border-style: dashed;
+      background: rgba(111, 143, 173, 0.08);
+    }
+
+    .notice-card strong {
+      display: block;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    .notice-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
     .free-path-note {
       margin-bottom: 18px;
       padding: 16px;
@@ -498,6 +545,7 @@
       <button class="menu" id="menu" aria-label="Open navigation">Menu</button>
       <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
         <a href="#audio">Audio</a>
+        <a href="#processes">Processes</a>
         <a href="#cameras">Cameras & Switchers</a>
         <a href="#livestream">Livestream Software</a>
         <a href="#zoom">Zoom Training</a>
@@ -514,8 +562,8 @@
       <div class="container hero-grid">
         <div>
           <span class="eyebrow">FMZAV Media Training</span>
-          <h1>Training links for <span>audio, cameras, switchers, livestreaming, Zoom, graphics, and post-production.</span></h1>
-          <p class="lead">This page is a focused training hub for the FMZBC AV Ministry. Use the cards below to access official manuals, learning centers, tutorials, livestream software resources, Zoom setup guides, and internal template placeholders.</p>
+          <h1>Training links for <span>volunteers learning FMZBC AV ministry workflows.</span></h1>
+          <p class="lead">This page is a focused training hub for FMZBC AV Ministry volunteers. Use it to understand basic AV processes, preparation expectations, and approved learning resources for audio, cameras, livestreaming, Zoom, graphics, and post-production.</p>
           <div class="actions">
             <a class="btn primary" href="#audio">Start Training</a>
             <a class="btn" href="#free-tools">Free Tools Path</a>
@@ -525,6 +573,95 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <section id="processes">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">FMZBC AV Process Basics</span>
+            <h2>How volunteers prepare and serve</h2>
+            <p>These summaries are adapted from the AV process documentation for volunteer training. They explain what volunteers need to understand without publishing internal account, purchasing, routing, asset, or leadership-only details.</p>
+          </div>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <span class="category">Purpose</span>
+            <h3>What AV supports</h3>
+            <p>AV supports worship, livestreaming, Bible studies, ministry events, meetings, classroom AV, media production, graphics, recording, editing, and display support.</p>
+            <ul>
+              <li>Know whether you are supporting a service, event, meeting, recording, or room setup.</li>
+              <li>Stay within your assigned role and ask the lead before changing a workflow.</li>
+              <li>Remember that production quality comes from preparation, training, and teamwork.</li>
+            </ul>
+          </article>
+
+          <article class="process-card">
+            <span class="category">Communication</span>
+            <h3>Deadlines prevent pressure</h3>
+            <p>Volunteers should understand the timing standards so they can help ministries prepare before service day.</p>
+            <ul>
+              <li>Sunday service information is due Friday at noon.</li>
+              <li>Announcement information is due Tuesday at noon.</li>
+              <li>General AV requests and media files should arrive at least 48 hours before an event.</li>
+              <li>Major event details should be shared 1-2 weeks ahead when possible.</li>
+              <li>Media requests usually need 3-5 business days.</li>
+            </ul>
+          </article>
+
+          <article class="process-card">
+            <span class="category">Requests</span>
+            <h3>What a good AV request includes</h3>
+            <p>A complete request helps the team test files, plan setup, and avoid last-minute guessing.</p>
+            <ul>
+              <li>Event name, ministry name, date, time, room, and contact person.</li>
+              <li>Microphone, media playback, livestream, recording, Zoom, setup, and stage-change needs.</li>
+              <li>Files submitted early enough to test before people arrive.</li>
+              <li>Clear final decision-maker for live changes.</li>
+            </ul>
+          </article>
+
+          <article class="process-card">
+            <span class="category">Serving</span>
+            <h3>Service and event flow</h3>
+            <p>Most volunteer work follows the same rhythm: arrive, check, rehearse, serve, reset, and report.</p>
+            <ul>
+              <li>Arrive early enough to check your assigned position.</li>
+              <li>Confirm content, mics, cameras, graphics, stream or recording needs with the lead.</li>
+              <li>Practice or rehearse before taking on live responsibility.</li>
+              <li>Afterward, help reset the area and report anything unusual.</li>
+            </ul>
+          </article>
+
+          <article class="process-card">
+            <span class="category">Media</span>
+            <h3>Graphics and media standards</h3>
+            <p>Volunteer-facing media work should be readable, approved, properly timed, and safe to use online.</p>
+            <ul>
+              <li>Use large readable text, strong contrast, and clean backgrounds.</li>
+              <li>Check names, dates, spelling, times, and approval status before playback.</li>
+              <li>Ask before using content when copyright or privacy is unclear.</li>
+            </ul>
+          </article>
+
+          <article class="process-card">
+            <span class="category">Issues</span>
+            <h3>When something goes wrong</h3>
+            <p>The volunteer response is to protect the service, notify the right lead, and document the issue after the moment passes.</p>
+            <ul>
+              <li>Stay calm and communicate the issue to the assigned lead.</li>
+              <li>Use backup or simplified options only when trained or directed.</li>
+              <li>Document the room, system affected, action taken, temporary fix, and follow-up need.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="notice-card">
+          <strong>Private information intentionally excluded</strong>
+          <p>This public training page does not include vendor account details, purchase records, login paths, private links, room power sequences, wiring or routing diagrams, network escalation details, asset records, or leadership-only approval context.</p>
+        </div>
       </div>
     </section>
 
